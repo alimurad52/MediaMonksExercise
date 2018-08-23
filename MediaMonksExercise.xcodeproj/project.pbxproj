@@ -13,7 +13,25 @@
 		3CD50BD0212E495F00E6E543 /* MediaMonksExercise.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3CD50BCE212E495F00E6E543 /* MediaMonksExercise.xcdatamodeld */; };
 		3CD50BD2212E496000E6E543 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CD50BD1212E496000E6E543 /* Assets.xcassets */; };
 		3CD50BD5212E496000E6E543 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CD50BD3212E496000E6E543 /* LaunchScreen.storyboard */; };
+		3CD50BDE212E4B2900E6E543 /* AlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD50BDD212E4B2900E6E543 /* AlbumViewController.swift */; };
+		3CD50BE0212E4B4400E6E543 /* AlbumTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD50BDF212E4B4400E6E543 /* AlbumTableViewCell.swift */; };
+		3CD50BE5212E523A00E6E543 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CD50BE4212E523900E6E543 /* Alamofire.framework */; };
+		3CD50BE8212E524200E6E543 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3CD50BE6212E524200E6E543 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		3CD50BE9212E524200E6E543 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				3CD50BE8212E524200E6E543 /* Alamofire.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		3CD50BC4212E495F00E6E543 /* MediaMonksExercise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MediaMonksExercise.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -24,6 +42,10 @@
 		3CD50BD1212E496000E6E543 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3CD50BD4212E496000E6E543 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3CD50BD6212E496000E6E543 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3CD50BDD212E4B2900E6E543 /* AlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumViewController.swift; sourceTree = "<group>"; };
+		3CD50BDF212E4B4400E6E543 /* AlbumTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumTableViewCell.swift; sourceTree = "<group>"; };
+		3CD50BE4212E523900E6E543 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		3CD50BE6212E524200E6E543 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3CD50BE5212E523A00E6E543 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,8 +63,10 @@
 		3CD50BBB212E495F00E6E543 = {
 			isa = PBXGroup;
 			children = (
+				3CD50BE6212E524200E6E543 /* Alamofire.framework */,
 				3CD50BC6212E495F00E6E543 /* MediaMonksExercise */,
 				3CD50BC5212E495F00E6E543 /* Products */,
+				3CD50BE3212E523900E6E543 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,6 +81,7 @@
 		3CD50BC6212E495F00E6E543 /* MediaMonksExercise */ = {
 			isa = PBXGroup;
 			children = (
+				3CD50BDC212E4B1600E6E543 /* Album */,
 				3CD50BC7212E495F00E6E543 /* AppDelegate.swift */,
 				3CD50BC9212E495F00E6E543 /* ViewController.swift */,
 				3CD50BCB212E495F00E6E543 /* Main.storyboard */,
@@ -65,6 +91,23 @@
 				3CD50BCE212E495F00E6E543 /* MediaMonksExercise.xcdatamodeld */,
 			);
 			path = MediaMonksExercise;
+			sourceTree = "<group>";
+		};
+		3CD50BDC212E4B1600E6E543 /* Album */ = {
+			isa = PBXGroup;
+			children = (
+				3CD50BDD212E4B2900E6E543 /* AlbumViewController.swift */,
+				3CD50BDF212E4B4400E6E543 /* AlbumTableViewCell.swift */,
+			);
+			path = Album;
+			sourceTree = "<group>";
+		};
+		3CD50BE3212E523900E6E543 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3CD50BE4212E523900E6E543 /* Alamofire.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -77,6 +120,7 @@
 				3CD50BC0212E495F00E6E543 /* Sources */,
 				3CD50BC1212E495F00E6E543 /* Frameworks */,
 				3CD50BC2212E495F00E6E543 /* Resources */,
+				3CD50BE9212E524200E6E543 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -138,6 +182,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3CD50BE0212E4B4400E6E543 /* AlbumTableViewCell.swift in Sources */,
+				3CD50BDE212E4B2900E6E543 /* AlbumViewController.swift in Sources */,
 				3CD50BCA212E495F00E6E543 /* ViewController.swift in Sources */,
 				3CD50BD0212E495F00E6E543 /* MediaMonksExercise.xcdatamodeld in Sources */,
 				3CD50BC8212E495F00E6E543 /* AppDelegate.swift in Sources */,
@@ -286,6 +332,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = EXAXA387S9;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = MediaMonksExercise/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -304,6 +354,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = EXAXA387S9;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = MediaMonksExercise/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
