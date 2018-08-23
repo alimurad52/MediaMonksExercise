@@ -16,9 +16,10 @@ class PhotoTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         lbl_img.numberOfLines = 0
-        // Initialization code
+        imgView.layer.borderWidth = 0
+        imgView.layer.cornerRadius = imgView.frame.height/2
+        imgView.clipsToBounds = true
     }
-
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

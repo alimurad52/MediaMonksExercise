@@ -44,23 +44,35 @@ public class GlobalFile {
         }
     }
 }
+let imageCache = NSCache<NSString, UIImage>()
 public extension UIImageView {
-    func downloadedFrom(url: URL, contentMode mode: UIViewContentMode = .scaleAspectFit) {
-        contentMode = mode
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            guard
-                let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
-                let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
-                let data = data, error == nil,
-                let image = UIImage(data: data)
-                else { return }
-            DispatchQueue.main.async() {
-                self.image = image
+    func downloadImage(from imgURL: String!) {
+        let url = URLRequest(url: URL(string: imgURL)!)
+        
+        // set initial image to nil so it doesn't use the image from a reused cell
+        image = nil
+        
+        // check if the image is already in the cache
+        if let imageToCache = imageCache.object(forKey: imgURL! as NSString) {
+            self.image = imageToCache
+            return
+        }
+        
+        // download the image asynchronously
+        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+            if error != nil {
+                print(error!)
+                return
             }
-            }.resume()
-    }
-    func downloadedFrom(link: String, contentMode mode: UIViewContentMode = .scaleAspectFit) {
-        guard let url = URL(string: link) else { return }
-        downloadedFrom(url: url, contentMode: mode)
+            
+            DispatchQueue.main.async {
+                // create UIImage
+                let imageToCache = UIImage(data: data!)
+                // add image to cache
+                imageCache.setObject(imageToCache!, forKey: imgURL! as NSString)
+                self.image = imageToCache
+            }
+        }
+        task.resume()
     }
 }
