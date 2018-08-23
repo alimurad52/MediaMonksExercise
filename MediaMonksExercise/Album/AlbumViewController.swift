@@ -22,14 +22,18 @@ class AlbumViewController: UIViewController {
         super.viewDidLoad()
         
         let revealingSplashView = RevealingSplashView(iconImage: UIImage(named: "Logo")!, iconInitialSize: CGSize(width: 100, height: 70), backgroundColor: UIColor.black)
-        self.view.addSubview(revealingSplashView)
+        revealingSplashView.useCustomIconColor = true
+        navigationController?.navigationBar.prefersLargeTitles = true
+        revealingSplashView.iconColor = UIColor.white
+        let window = UIApplication.shared.keyWindow
+        window?.addSubview(revealingSplashView)
         revealingSplashView.startAnimation()
         
         tableView.delegate = self
         tableView.dataSource = self
         self.view.backgroundColor = UIColor(red:241.0/255.0, green:242.0/255.0, blue:242.0/255.0, alpha:1.0)
-        revealingSplashView.useCustomIconColor = true
-        revealingSplashView.iconColor = UIColor.white
+        
+        window?.addSubview(revealingSplashView)
         tableView.backgroundColor = .clear
         getData()
         
@@ -65,6 +69,8 @@ extension AlbumViewController: UITableViewDelegate, UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AlbumTableViewCell") as? AlbumTableViewCell
+        cell?.layer.cornerRadius = 10
+        cell?.layer.masksToBounds = true
         cell?.lbl_album_title.text = titles[indexPath.section]
         return cell!
     }

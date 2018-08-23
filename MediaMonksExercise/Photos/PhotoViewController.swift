@@ -26,6 +26,7 @@ class PhotoViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         self.view.backgroundColor = UIColor(red:241.0/255.0, green:242.0/255.0, blue:242.0/255.0, alpha:1.0)
+        navigationController?.navigationBar.prefersLargeTitles = true
         tableView.backgroundColor = .clear
         getData()
         
@@ -70,6 +71,8 @@ extension PhotoViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PhotoTableViewCell") as? PhotoTableViewCell
         cell?.lbl_img.text = titles[indexPath.section]
+        cell?.layer.cornerRadius = 10
+        cell?.layer.masksToBounds = true
         UIView.transition(with: (cell?.imgView)!, duration: 0.2, options: UIViewAnimationOptions.transitionCrossDissolve, animations:  {
             cell?.imgView.downloadImage(from: self.thumnailURL[indexPath.section])
         }, completion: nil)
@@ -87,9 +90,6 @@ extension PhotoViewController: UITableViewDelegate, UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 8
-    }
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        globalFunc.animateTable2(cell: cell)
     }
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView()

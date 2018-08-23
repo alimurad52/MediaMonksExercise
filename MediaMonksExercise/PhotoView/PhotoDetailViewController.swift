@@ -28,6 +28,7 @@ class PhotoDetailViewController: UIViewController {
         super.viewDidLoad()
         lbl_title.numberOfLines = 0
         imageURL.numberOfLines = 0
+        navigationController?.navigationBar.prefersLargeTitles = true
         DispatchQueue.main.async {
             self.showLoadingOverlay(coveringNavigationBar: true)
             self.img_id.attributedText = self.GlobalFunc.attributedText(withString: String(format: "Image ID: %@", "\(self.imageID!)"), boldString: "Image ID", font: self.img_id.font)
@@ -36,8 +37,6 @@ class PhotoDetailViewController: UIViewController {
             self.imageURL.attributedText = self.GlobalFunc.attributedText(withString: String(format: "Image URL: %@", self.imgURL!), boldString: "Image URL", font: self.imageURL.font)
             self.getImg()
         }
-        
-        // Do any additional setup after loading the view.
     }
     func getImg() {
         let session = URLSession(configuration: .default)
