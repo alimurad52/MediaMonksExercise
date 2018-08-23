@@ -17,6 +17,11 @@
 		3CD50BE0212E4B4400E6E543 /* AlbumTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD50BDF212E4B4400E6E543 /* AlbumTableViewCell.swift */; };
 		3CD50BE5212E523A00E6E543 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CD50BE4212E523900E6E543 /* Alamofire.framework */; };
 		3CD50BE8212E524200E6E543 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3CD50BE6212E524200E6E543 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3CD50BEC212E60A700E6E543 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD50BEB212E60A700E6E543 /* PhotoViewController.swift */; };
+		3CD50BEE212E60BF00E6E543 /* PhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD50BED212E60BF00E6E543 /* PhotoTableViewCell.swift */; };
+		3CD50BF0212E865100E6E543 /* GlobalFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD50BEF212E865100E6E543 /* GlobalFile.swift */; };
+		3CD50BF5212E89FF00E6E543 /* LoadingOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD50BF4212E89FF00E6E543 /* LoadingOverlay.swift */; };
+		3CD50BF7212E8A2100E6E543 /* UIViewController+LoadingOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD50BF6212E8A2100E6E543 /* UIViewController+LoadingOverlay.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -46,6 +51,11 @@
 		3CD50BDF212E4B4400E6E543 /* AlbumTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumTableViewCell.swift; sourceTree = "<group>"; };
 		3CD50BE4212E523900E6E543 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		3CD50BE6212E524200E6E543 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		3CD50BEB212E60A700E6E543 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
+		3CD50BED212E60BF00E6E543 /* PhotoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTableViewCell.swift; sourceTree = "<group>"; };
+		3CD50BEF212E865100E6E543 /* GlobalFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalFile.swift; sourceTree = "<group>"; };
+		3CD50BF4212E89FF00E6E543 /* LoadingOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingOverlay.swift; sourceTree = "<group>"; };
+		3CD50BF6212E8A2100E6E543 /* UIViewController+LoadingOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+LoadingOverlay.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +91,8 @@
 		3CD50BC6212E495F00E6E543 /* MediaMonksExercise */ = {
 			isa = PBXGroup;
 			children = (
+				3CD50BF3212E89E100E6E543 /* Global Files */,
+				3CD50BEA212E608600E6E543 /* Photos */,
 				3CD50BDC212E4B1600E6E543 /* Album */,
 				3CD50BC7212E495F00E6E543 /* AppDelegate.swift */,
 				3CD50BC9212E495F00E6E543 /* ViewController.swift */,
@@ -89,6 +101,7 @@
 				3CD50BD3212E496000E6E543 /* LaunchScreen.storyboard */,
 				3CD50BD6212E496000E6E543 /* Info.plist */,
 				3CD50BCE212E495F00E6E543 /* MediaMonksExercise.xcdatamodeld */,
+				3CD50BEF212E865100E6E543 /* GlobalFile.swift */,
 			);
 			path = MediaMonksExercise;
 			sourceTree = "<group>";
@@ -108,6 +121,24 @@
 				3CD50BE4212E523900E6E543 /* Alamofire.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3CD50BEA212E608600E6E543 /* Photos */ = {
+			isa = PBXGroup;
+			children = (
+				3CD50BEB212E60A700E6E543 /* PhotoViewController.swift */,
+				3CD50BED212E60BF00E6E543 /* PhotoTableViewCell.swift */,
+			);
+			path = Photos;
+			sourceTree = "<group>";
+		};
+		3CD50BF3212E89E100E6E543 /* Global Files */ = {
+			isa = PBXGroup;
+			children = (
+				3CD50BF4212E89FF00E6E543 /* LoadingOverlay.swift */,
+				3CD50BF6212E8A2100E6E543 /* UIViewController+LoadingOverlay.swift */,
+			);
+			path = "Global Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -182,11 +213,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3CD50BEE212E60BF00E6E543 /* PhotoTableViewCell.swift in Sources */,
 				3CD50BE0212E4B4400E6E543 /* AlbumTableViewCell.swift in Sources */,
 				3CD50BDE212E4B2900E6E543 /* AlbumViewController.swift in Sources */,
+				3CD50BF5212E89FF00E6E543 /* LoadingOverlay.swift in Sources */,
 				3CD50BCA212E495F00E6E543 /* ViewController.swift in Sources */,
+				3CD50BF0212E865100E6E543 /* GlobalFile.swift in Sources */,
 				3CD50BD0212E495F00E6E543 /* MediaMonksExercise.xcdatamodeld in Sources */,
 				3CD50BC8212E495F00E6E543 /* AppDelegate.swift in Sources */,
+				3CD50BF7212E8A2100E6E543 /* UIViewController+LoadingOverlay.swift in Sources */,
+				3CD50BEC212E60A700E6E543 /* PhotoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
