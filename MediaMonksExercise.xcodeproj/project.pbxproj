@@ -22,6 +22,7 @@
 		3CD50BF0212E865100E6E543 /* GlobalFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD50BEF212E865100E6E543 /* GlobalFile.swift */; };
 		3CD50BF5212E89FF00E6E543 /* LoadingOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD50BF4212E89FF00E6E543 /* LoadingOverlay.swift */; };
 		3CD50BF7212E8A2100E6E543 /* UIViewController+LoadingOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD50BF6212E8A2100E6E543 /* UIViewController+LoadingOverlay.swift */; };
+		3CD50BFA212EA2C700E6E543 /* PhotoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD50BF9212EA2C700E6E543 /* PhotoDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -56,6 +57,7 @@
 		3CD50BEF212E865100E6E543 /* GlobalFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalFile.swift; sourceTree = "<group>"; };
 		3CD50BF4212E89FF00E6E543 /* LoadingOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingOverlay.swift; sourceTree = "<group>"; };
 		3CD50BF6212E8A2100E6E543 /* UIViewController+LoadingOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+LoadingOverlay.swift"; sourceTree = "<group>"; };
+		3CD50BF9212EA2C700E6E543 /* PhotoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 		3CD50BC6212E495F00E6E543 /* MediaMonksExercise */ = {
 			isa = PBXGroup;
 			children = (
+				3CD50BF8212EA2AB00E6E543 /* PhotoView */,
 				3CD50BF3212E89E100E6E543 /* Global Files */,
 				3CD50BEA212E608600E6E543 /* Photos */,
 				3CD50BDC212E4B1600E6E543 /* Album */,
@@ -139,6 +142,14 @@
 				3CD50BF6212E8A2100E6E543 /* UIViewController+LoadingOverlay.swift */,
 			);
 			path = "Global Files";
+			sourceTree = "<group>";
+		};
+		3CD50BF8212EA2AB00E6E543 /* PhotoView */ = {
+			isa = PBXGroup;
+			children = (
+				3CD50BF9212EA2C700E6E543 /* PhotoDetailViewController.swift */,
+			);
+			path = PhotoView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -218,6 +229,7 @@
 				3CD50BDE212E4B2900E6E543 /* AlbumViewController.swift in Sources */,
 				3CD50BF5212E89FF00E6E543 /* LoadingOverlay.swift in Sources */,
 				3CD50BCA212E495F00E6E543 /* ViewController.swift in Sources */,
+				3CD50BFA212EA2C700E6E543 /* PhotoDetailViewController.swift in Sources */,
 				3CD50BF0212E865100E6E543 /* GlobalFile.swift in Sources */,
 				3CD50BD0212E495F00E6E543 /* MediaMonksExercise.xcdatamodeld in Sources */,
 				3CD50BC8212E495F00E6E543 /* AppDelegate.swift in Sources */,

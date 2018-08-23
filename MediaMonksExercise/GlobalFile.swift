@@ -43,6 +43,14 @@ public class GlobalFile {
             view.layer.opacity = 1
         }
     }
+    func attributedText(withString string: String, boldString: String, font: UIFont) -> NSAttributedString {
+        let attributedString = NSMutableAttributedString(string: string,
+                                                         attributes: [NSAttributedStringKey.font: font])
+        let boldFontAttribute: [NSAttributedStringKey: Any] = [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: font.pointSize)]
+        let range = (string as NSString).range(of: boldString)
+        attributedString.addAttributes(boldFontAttribute, range: range)
+        return attributedString
+    }
 }
 let imageCache = NSCache<NSString, UIImage>()
 public extension UIImageView {

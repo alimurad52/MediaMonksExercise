@@ -75,6 +75,16 @@ extension PhotoViewController: UITableViewDelegate, UITableViewDataSource {
         }, completion: nil)
         return cell!
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let detailVC = storyboard.instantiateViewController(withIdentifier: "PhotoDetailViewController") as? PhotoDetailViewController
+        detailVC?.albumID = passedValue
+        detailVC?.imageID = ids[indexPath.section]
+        detailVC?.imgURL = urls[indexPath.section]
+        detailVC?.imgTitle = titles[indexPath.section]
+        self.navigationController?.pushViewController(detailVC!, animated: true)
+    }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 8
     }

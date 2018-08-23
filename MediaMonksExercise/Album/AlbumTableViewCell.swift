@@ -14,6 +14,7 @@ class AlbumTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         lbl_album_title.numberOfLines = 0
+        lbl_album_title.font = lbl_album_title.font.withSize(24)
 
         // Initialization code
     }

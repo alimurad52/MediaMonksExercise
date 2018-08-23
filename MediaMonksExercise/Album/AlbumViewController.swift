@@ -21,6 +21,8 @@ class AlbumViewController: UIViewController {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        self.view.backgroundColor = UIColor(red:241.0/255.0, green:242.0/255.0, blue:242.0/255.0, alpha:1.0)
+        tableView.backgroundColor = .clear
         getData()
         
     }
@@ -50,22 +52,30 @@ class AlbumViewController: UIViewController {
 }
 extension AlbumViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return album_ids.count
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return album_ids.count
+        return 1
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AlbumTableViewCell") as? AlbumTableViewCell
-        cell?.lbl_album_title.text = titles[indexPath.row]
+        cell?.lbl_album_title.text = titles[indexPath.section]
         return cell!
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let valueToPass = self.album_ids[indexPath.row]
+        let valueToPass = self.album_ids[indexPath.section]
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let photoVC = storyboard.instantiateViewController(withIdentifier: "PhotoViewController") as? PhotoViewController
         photoVC?.passedValue = valueToPass
         self.navigationController?.pushViewController(photoVC!, animated: true)
+    }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 8
+    }
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = UIView()
+        view.backgroundColor = .clear
+        return view
     }
 }

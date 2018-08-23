@@ -16,6 +16,7 @@ class PhotoTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         lbl_img.numberOfLines = 0
+        lbl_img.font = lbl_img.font.withSize(16)
         imgView.layer.borderWidth = 0
         imgView.layer.cornerRadius = imgView.frame.height/2
         imgView.clipsToBounds = true
