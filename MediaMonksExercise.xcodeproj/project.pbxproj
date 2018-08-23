@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3CD50BC8212E495F00E6E543 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD50BC7212E495F00E6E543 /* AppDelegate.swift */; };
-		3CD50BCA212E495F00E6E543 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD50BC9212E495F00E6E543 /* ViewController.swift */; };
 		3CD50BCD212E495F00E6E543 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CD50BCB212E495F00E6E543 /* Main.storyboard */; };
 		3CD50BD0212E495F00E6E543 /* MediaMonksExercise.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3CD50BCE212E495F00E6E543 /* MediaMonksExercise.xcdatamodeld */; };
 		3CD50BD2212E496000E6E543 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CD50BD1212E496000E6E543 /* Assets.xcassets */; };
@@ -23,6 +22,8 @@
 		3CD50BF5212E89FF00E6E543 /* LoadingOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD50BF4212E89FF00E6E543 /* LoadingOverlay.swift */; };
 		3CD50BF7212E8A2100E6E543 /* UIViewController+LoadingOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD50BF6212E8A2100E6E543 /* UIViewController+LoadingOverlay.swift */; };
 		3CD50BFA212EA2C700E6E543 /* PhotoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD50BF9212EA2C700E6E543 /* PhotoDetailViewController.swift */; };
+		3CD50BFE212EB09400E6E543 /* RevealingSplashView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CD50BFD212EB09400E6E543 /* RevealingSplashView.framework */; };
+		3CD50C01212EB09A00E6E543 /* RevealingSplashView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3CD50BFF212EB09A00E6E543 /* RevealingSplashView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -32,6 +33,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				3CD50C01212EB09A00E6E543 /* RevealingSplashView.framework in Embed Frameworks */,
 				3CD50BE8212E524200E6E543 /* Alamofire.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -42,7 +44,6 @@
 /* Begin PBXFileReference section */
 		3CD50BC4212E495F00E6E543 /* MediaMonksExercise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MediaMonksExercise.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CD50BC7212E495F00E6E543 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3CD50BC9212E495F00E6E543 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3CD50BCC212E495F00E6E543 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3CD50BCF212E495F00E6E543 /* MediaMonksExercise.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MediaMonksExercise.xcdatamodel; sourceTree = "<group>"; };
 		3CD50BD1212E496000E6E543 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -58,6 +59,8 @@
 		3CD50BF4212E89FF00E6E543 /* LoadingOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingOverlay.swift; sourceTree = "<group>"; };
 		3CD50BF6212E8A2100E6E543 /* UIViewController+LoadingOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+LoadingOverlay.swift"; sourceTree = "<group>"; };
 		3CD50BF9212EA2C700E6E543 /* PhotoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailViewController.swift; sourceTree = "<group>"; };
+		3CD50BFD212EB09400E6E543 /* RevealingSplashView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RevealingSplashView.framework; path = Carthage/Build/iOS/RevealingSplashView.framework; sourceTree = "<group>"; };
+		3CD50BFF212EB09A00E6E543 /* RevealingSplashView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RevealingSplashView.framework; path = Carthage/Build/iOS/RevealingSplashView.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +69,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3CD50BE5212E523A00E6E543 /* Alamofire.framework in Frameworks */,
+				3CD50BFE212EB09400E6E543 /* RevealingSplashView.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +79,7 @@
 		3CD50BBB212E495F00E6E543 = {
 			isa = PBXGroup;
 			children = (
+				3CD50BFF212EB09A00E6E543 /* RevealingSplashView.framework */,
 				3CD50BE6212E524200E6E543 /* Alamofire.framework */,
 				3CD50BC6212E495F00E6E543 /* MediaMonksExercise */,
 				3CD50BC5212E495F00E6E543 /* Products */,
@@ -98,13 +103,11 @@
 				3CD50BEA212E608600E6E543 /* Photos */,
 				3CD50BDC212E4B1600E6E543 /* Album */,
 				3CD50BC7212E495F00E6E543 /* AppDelegate.swift */,
-				3CD50BC9212E495F00E6E543 /* ViewController.swift */,
 				3CD50BCB212E495F00E6E543 /* Main.storyboard */,
 				3CD50BD1212E496000E6E543 /* Assets.xcassets */,
 				3CD50BD3212E496000E6E543 /* LaunchScreen.storyboard */,
 				3CD50BD6212E496000E6E543 /* Info.plist */,
 				3CD50BCE212E495F00E6E543 /* MediaMonksExercise.xcdatamodeld */,
-				3CD50BEF212E865100E6E543 /* GlobalFile.swift */,
 			);
 			path = MediaMonksExercise;
 			sourceTree = "<group>";
@@ -121,6 +124,7 @@
 		3CD50BE3212E523900E6E543 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3CD50BFD212EB09400E6E543 /* RevealingSplashView.framework */,
 				3CD50BE4212E523900E6E543 /* Alamofire.framework */,
 			);
 			name = Frameworks;
@@ -138,6 +142,7 @@
 		3CD50BF3212E89E100E6E543 /* Global Files */ = {
 			isa = PBXGroup;
 			children = (
+				3CD50BEF212E865100E6E543 /* GlobalFile.swift */,
 				3CD50BF4212E89FF00E6E543 /* LoadingOverlay.swift */,
 				3CD50BF6212E8A2100E6E543 /* UIViewController+LoadingOverlay.swift */,
 			);
@@ -228,7 +233,6 @@
 				3CD50BE0212E4B4400E6E543 /* AlbumTableViewCell.swift in Sources */,
 				3CD50BDE212E4B2900E6E543 /* AlbumViewController.swift in Sources */,
 				3CD50BF5212E89FF00E6E543 /* LoadingOverlay.swift in Sources */,
-				3CD50BCA212E495F00E6E543 /* ViewController.swift in Sources */,
 				3CD50BFA212EA2C700E6E543 /* PhotoDetailViewController.swift in Sources */,
 				3CD50BF0212E865100E6E543 /* GlobalFile.swift in Sources */,
 				3CD50BD0212E495F00E6E543 /* MediaMonksExercise.xcdatamodeld in Sources */,

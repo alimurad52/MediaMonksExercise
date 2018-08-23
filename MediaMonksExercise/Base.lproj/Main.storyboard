@@ -137,7 +137,7 @@
             </objects>
             <point key="canvasLocation" x="3061.5999999999999" y="128.57142857142858"/>
         </scene>
-        <!--Photo Detail-->
+        <!--Photo Detail View Controller-->
         <scene sceneID="cgd-LC-poZ">
             <objects>
                 <viewController storyboardIdentifier="PhotoDetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1zV-By-KIY" customClass="PhotoDetailViewController" customModule="MediaMonksExercise" customModuleProvider="target" sceneMemberID="viewController">
@@ -193,7 +193,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5N1-2O-pog"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Photo Detail" id="p33-Og-jm8"/>
+                    <navigationItem key="navigationItem" id="p33-Og-jm8"/>
                     <connections>
                         <outlet property="imageURL" destination="7jQ-jU-DaQ" id="MkT-YJ-825"/>
                         <outlet property="imageView" destination="Qci-45-unh" id="xyl-K5-Uio"/>
@@ -209,6 +209,7 @@
         <!--Navigation Controller-->
         <scene sceneID="Esu-WJ-5ZW">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Rh-DM-kdy" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rSD-GD-NFY" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wbK-eN-ijS">
@@ -220,7 +221,6 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="wxU-RG-mcv"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7Rh-DM-kdy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="133.74384236453201"/>
         </scene>

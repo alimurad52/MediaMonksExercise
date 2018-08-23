@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import RevealingSplashView
 
 class AlbumViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
@@ -19,15 +20,21 @@ class AlbumViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let revealingSplashView = RevealingSplashView(iconImage: UIImage(named: "Logo")!, iconInitialSize: CGSize(width: 100, height: 70), backgroundColor: UIColor.black)
+        self.view.addSubview(revealingSplashView)
+        revealingSplashView.startAnimation()
+        
         tableView.delegate = self
         tableView.dataSource = self
         self.view.backgroundColor = UIColor(red:241.0/255.0, green:242.0/255.0, blue:242.0/255.0, alpha:1.0)
+        revealingSplashView.useCustomIconColor = true
+        revealingSplashView.iconColor = UIColor.white
         tableView.backgroundColor = .clear
         getData()
         
     }
     func getData() {
-        showLoadingOverlay(coveringNavigationBar: true)
         Alamofire.request(albumURL).responseJSON { response in
             let albums = response.result.value as? NSArray
             for i in 0 ..< albums!.count {
@@ -44,7 +51,6 @@ class AlbumViewController: UIViewController {
             }
             DispatchQueue.main.async {
                 self.tableView.reloadData()
-                self.hideLoadingOverlay()
                 self.globalFunc.animateTable(tableView: self.tableView)
             }
         }

@@ -1,0 +1,18 @@
+{
+  "Mac" : [
+
+  ],
+  "watchOS" : [
+
+  ],
+  "tvOS" : [
+
+  ],
+  "commitish" : "0.5.0",
+  "iOS" : [
+    {
+      "name" : "RevealingSplashView",
+      "hash" : "a614c5b41b5dc1d6de26738537c95432e62f2a074a4713b97ac0423d3ec7cbb6"
+    }
+  ]
+}
