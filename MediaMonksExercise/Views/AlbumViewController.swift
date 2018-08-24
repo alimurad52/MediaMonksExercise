@@ -40,7 +40,6 @@ class AlbumViewController: UIViewController {
             self.tableView.reloadData()
             self.animation.animateTable(tableView: self.tableView)
         }, onError: {(error: Error)in
-            print(error, "errror shit")
         })
     }
     struct GetData: RequestType {
