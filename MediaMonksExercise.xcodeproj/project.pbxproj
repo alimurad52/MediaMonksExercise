@@ -98,10 +98,8 @@
 		3CD50BC6212E495F00E6E543 /* MediaMonksExercise */ = {
 			isa = PBXGroup;
 			children = (
-				3CD50BF8212EA2AB00E6E543 /* PhotoView */,
-				3CD50BF3212E89E100E6E543 /* Global Files */,
-				3CD50BEA212E608600E6E543 /* Photos */,
-				3CD50BDC212E4B1600E6E543 /* Album */,
+				3CF755F8212F882B0065BBC6 /* Common */,
+				3CF755F6212F82A00065BBC6 /* Views */,
 				3CD50BC7212E495F00E6E543 /* AppDelegate.swift */,
 				3CD50BCB212E495F00E6E543 /* Main.storyboard */,
 				3CD50BD1212E496000E6E543 /* Assets.xcassets */,
@@ -110,15 +108,6 @@
 				3CD50BCE212E495F00E6E543 /* MediaMonksExercise.xcdatamodeld */,
 			);
 			path = MediaMonksExercise;
-			sourceTree = "<group>";
-		};
-		3CD50BDC212E4B1600E6E543 /* Album */ = {
-			isa = PBXGroup;
-			children = (
-				3CD50BDD212E4B2900E6E543 /* AlbumViewController.swift */,
-				3CD50BDF212E4B4400E6E543 /* AlbumTableViewCell.swift */,
-			);
-			path = Album;
 			sourceTree = "<group>";
 		};
 		3CD50BE3212E523900E6E543 /* Frameworks */ = {
@@ -130,31 +119,26 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		3CD50BEA212E608600E6E543 /* Photos */ = {
+		3CF755F6212F82A00065BBC6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				3CD50BEB212E60A700E6E543 /* PhotoViewController.swift */,
+				3CD50BDF212E4B4400E6E543 /* AlbumTableViewCell.swift */,
+				3CD50BDD212E4B2900E6E543 /* AlbumViewController.swift */,
 				3CD50BED212E60BF00E6E543 /* PhotoTableViewCell.swift */,
+				3CD50BEB212E60A700E6E543 /* PhotoViewController.swift */,
+				3CD50BF9212EA2C700E6E543 /* PhotoDetailViewController.swift */,
 			);
-			path = Photos;
+			path = Views;
 			sourceTree = "<group>";
 		};
-		3CD50BF3212E89E100E6E543 /* Global Files */ = {
+		3CF755F8212F882B0065BBC6 /* Common */ = {
 			isa = PBXGroup;
 			children = (
 				3CD50BEF212E865100E6E543 /* GlobalFile.swift */,
 				3CD50BF4212E89FF00E6E543 /* LoadingOverlay.swift */,
 				3CD50BF6212E8A2100E6E543 /* UIViewController+LoadingOverlay.swift */,
 			);
-			path = "Global Files";
-			sourceTree = "<group>";
-		};
-		3CD50BF8212EA2AB00E6E543 /* PhotoView */ = {
-			isa = PBXGroup;
-			children = (
-				3CD50BF9212EA2C700E6E543 /* PhotoDetailViewController.swift */,
-			);
-			path = PhotoView;
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

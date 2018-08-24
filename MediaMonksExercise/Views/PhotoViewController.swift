@@ -28,6 +28,10 @@ class PhotoViewController: UIViewController {
         self.view.backgroundColor = UIColor(red:241.0/255.0, green:242.0/255.0, blue:242.0/255.0, alpha:1.0)
         navigationController?.navigationBar.prefersLargeTitles = true
         tableView.backgroundColor = .clear
+        if traitCollection.forceTouchCapability == UIForceTouchCapability.available {
+            registerForPreviewing(with: self, sourceView: self.tableView)
+        } else {
+        }
         getData()
         
     }
@@ -95,5 +99,29 @@ extension PhotoViewController: UITableViewDelegate, UITableViewDataSource {
         let view = UIView()
         view.backgroundColor = .clear
         return view
+    }
+}
+typealias PeekAndPopPreviewFunds = PhotoViewController
+extension PeekAndPopPreviewFunds: UIViewControllerPreviewingDelegate {
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        
+        guard let indexPath = self.tableView.indexPathForRow(at: location) else { return nil }
+        guard let cell = self.tableView.cellForRow(at: indexPath) else { return nil }
+        
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        guard let previewViewController = storyBoard.instantiateViewController(withIdentifier: "PhotoDetailViewController") as? PhotoDetailViewController else { return nil }
+        previewViewController.preferredContentSize = CGSize(width: 0.0, height: 550)
+        previewViewController.albumID = passedValue
+        previewViewController.imageID = ids[indexPath.section]
+        previewViewController.imgURL = urls[indexPath.section]
+        previewViewController.imgTitle = titles[indexPath.section]
+        
+        
+        previewingContext.sourceRect = cell.frame
+        return previewViewController
+        
+    }
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+        show(viewControllerToCommit, sender: self)
     }
 }
