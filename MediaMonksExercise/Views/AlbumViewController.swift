@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Alamofire
 import RevealingSplashView
 
 class AlbumViewController: UIViewController {
@@ -15,8 +14,7 @@ class AlbumViewController: UIViewController {
     var album_ids:[Int] = []
     var userIds:[Int] = []
     var titles:[String] = []
-    let albumURL = "https://jsonplaceholder.typicode.com/albums"
-    let globalFunc = GlobalFile()
+    let animation = Animation()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,34 +27,26 @@ class AlbumViewController: UIViewController {
         window?.addSubview(revealingSplashView)
         revealingSplashView.startAnimation()
         
+        
         tableView.delegate = self
         tableView.dataSource = self
         self.view.backgroundColor = UIColor(red:241.0/255.0, green:242.0/255.0, blue:242.0/255.0, alpha:1.0)
-        
-        window?.addSubview(revealingSplashView)
         tableView.backgroundColor = .clear
-        getData()
         
+        GetData().execute(onSuccess: {(albums: [Albums])in
+            self.album_ids = albums.id
+            self.userIds = albums.userId
+            self.titles = albums.title
+            self.tableView.reloadData()
+            self.animation.animateTable(tableView: self.tableView)
+        }, onError: {(error: Error)in
+            print(error, "errror shit")
+        })
     }
-    func getData() {
-        Alamofire.request(albumURL).responseJSON { response in
-            let albums = response.result.value as? NSArray
-            for i in 0 ..< albums!.count {
-                let album_str = albums?[i] as? Dictionary<String, Any>
-                
-                let id = album_str?["id"] as? Int
-                self.album_ids.append(id!)
-                
-                let userId = album_str?["userId"] as? Int
-                self.userIds.append(userId!)
-                
-                let albumTitle = album_str?["title"] as? String
-                self.titles.append(albumTitle!)
-            }
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-                self.globalFunc.animateTable(tableView: self.tableView)
-            }
+    struct GetData: RequestType {
+        typealias ResponseType = [Albums]
+        var data: RequestData {
+            return RequestData(path: GlobalVariables.baseURL)
         }
     }
 }
@@ -79,7 +69,7 @@ extension AlbumViewController: UITableViewDelegate, UITableViewDataSource {
         let valueToPass = self.album_ids[indexPath.section]
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let photoVC = storyboard.instantiateViewController(withIdentifier: "PhotoViewController") as? PhotoViewController
-        photoVC?.passedValue = valueToPass
+        PhotoViewController.passedValue = valueToPass
         self.navigationController?.pushViewController(photoVC!, animated: true)
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -89,5 +79,16 @@ extension AlbumViewController: UITableViewDelegate, UITableViewDataSource {
         let view = UIView()
         view.backgroundColor = .clear
         return view
+    }
+}
+extension Array where Element == Albums {
+    var userId: [Int] {
+        return map { $0.userId }
+    }
+    var id: [Int] {
+        return map { $0.id }
+    }
+    var title: [String] {
+        return map { $0.title }
     }
 }

@@ -7,20 +7,18 @@
 //
 
 import UIKit
-import Alamofire
 
 class PhotoViewController: UIViewController {
     
-    var passedValue:Int!
+    static var passedValue:Int!
     var album_id:[Int] = []
     var ids:[Int] = []
     var titles:[String] = []
     var urls:[String] = []
     var thumnailURL:[String] = []
-    let photosURL = "https://jsonplaceholder.typicode.com/photos"
-    let globalFunc = GlobalFile()
-    
+    let animation = Animation()
     @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
@@ -32,35 +30,27 @@ class PhotoViewController: UIViewController {
             registerForPreviewing(with: self, sourceView: self.tableView)
         } else {
         }
-        getData()
-        
-    }
-    func getData() {
+        print(PhotoViewController.passedValue!)
         showLoadingOverlay(coveringNavigationBar: true)
-        Alamofire.request(photosURL).responseJSON { response in
-            let photos = response.result.value as? NSArray
-            for i in 0 ..< photos!.count {
-                let photos_str = photos?[i] as? Dictionary<String, Any>
-                let albumID = photos_str?["albumId"] as? Int
-                if albumID == self.passedValue {
-                    let id = photos_str?["id"] as? Int
-                    self.ids.append(id!)
-                    
-                    let title = photos_str?["title"] as? String
-                    self.titles.append(title!)
-                    
-                    let url = photos_str?["url"] as? String
-                    self.urls.append(url!)
-                    
-                    let thumbnail_url = photos_str?["thumbnailUrl"] as? String
-                    self.thumnailURL.append(thumbnail_url!)
-                }
-            }
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-                self.hideLoadingOverlay()
-                self.globalFunc.animateTable(tableView: self.tableView)
-            }
+        GetData().execute(onSuccess: {(photos: [Photos]) in
+            print(photos.albumId)
+            self.album_id = photos.albumId
+            self.ids = photos.id
+            self.titles = photos.title
+            self.urls = photos.url
+            self.thumnailURL = photos.thumbnailUrl
+            self.tableView.reloadData()
+            self.hideLoadingOverlay()
+            self.animation.animateTable(tableView: self.tableView)
+        }, onError: {(error: Error) in
+            
+        })
+    }
+    struct GetData: RequestType {
+        weak var pv: PhotoViewController!
+        typealias ResponseType = [Photos]
+        var data: RequestData {
+            return RequestData(path: GlobalVariables.baseURL + "/\(PhotoViewController.passedValue!)/photos")
         }
     }
 }
@@ -86,7 +76,7 @@ extension PhotoViewController: UITableViewDelegate, UITableViewDataSource {
         tableView.deselectRow(at: indexPath, animated: true)
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let detailVC = storyboard.instantiateViewController(withIdentifier: "PhotoDetailViewController") as? PhotoDetailViewController
-        detailVC?.albumID = passedValue
+        detailVC?.albumID = PhotoViewController.passedValue
         detailVC?.imageID = ids[indexPath.section]
         detailVC?.imgURL = urls[indexPath.section]
         detailVC?.imgTitle = titles[indexPath.section]
@@ -101,27 +91,20 @@ extension PhotoViewController: UITableViewDelegate, UITableViewDataSource {
         return view
     }
 }
-typealias PeekAndPopPreviewFunds = PhotoViewController
-extension PeekAndPopPreviewFunds: UIViewControllerPreviewingDelegate {
-    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
-        
-        guard let indexPath = self.tableView.indexPathForRow(at: location) else { return nil }
-        guard let cell = self.tableView.cellForRow(at: indexPath) else { return nil }
-        
-        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        guard let previewViewController = storyBoard.instantiateViewController(withIdentifier: "PhotoDetailViewController") as? PhotoDetailViewController else { return nil }
-        previewViewController.preferredContentSize = CGSize(width: 0.0, height: 550)
-        previewViewController.albumID = passedValue
-        previewViewController.imageID = ids[indexPath.section]
-        previewViewController.imgURL = urls[indexPath.section]
-        previewViewController.imgTitle = titles[indexPath.section]
-        
-        
-        previewingContext.sourceRect = cell.frame
-        return previewViewController
-        
+extension Array where Element == Photos {
+    var albumId: [Int] {
+        return map { $0.albumId }
     }
-    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
-        show(viewControllerToCommit, sender: self)
+    var id: [Int] {
+        return map { $0.id }
+    }
+    var title: [String] {
+        return map { $0.title }
+    }
+    var url: [String] {
+        return map { $0.url }
+    }
+    var thumbnailUrl: [String] {
+        return map { $0.thumbnailUrl }
     }
 }
