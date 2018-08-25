@@ -1,5 +1,5 @@
 # MediaMonksExercise
-Developer by Ali Murad
+Developed by Ali Murad
 LinkedIn: https://www.linkedin.com/in/ali-murad/
 
 ## Instructions to build
